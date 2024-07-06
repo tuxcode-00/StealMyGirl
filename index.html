@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elly (She's Been My Queen)</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url('Elll.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Raleway", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    .lyrics-container {
+        width: 90%;
+        background: rgba( 255, 255, 255, 0.3 );
+        backdrop-filter: blur( 3.5px );
+        -webkit-backdrop-filter: blur( 3.5px );
+        border-radius: 10px;
+        border: 2px solid rgba( 255, 255, 255, 0.18 );
+        padding: 32px 12px;
+        font-size: .5rem;
+        font-weight: 600;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        color: #ffffffde;
+    }
+
+    .lyric {
+        font-size: 2em;
+        margin: 10px 0;
+        opacity: 0.5;
+        transition: opacity 0.3s, color 0.3s;
+    }
+
+    .lyric.active {
+        opacity: 1;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    .title{
+        width: 90%;
+        background: rgba( 255, 255, 255, 0.3 );
+        backdrop-filter: blur( 3.5px );
+        -webkit-backdrop-filter: blur( 3.5px );
+        border-radius: 10px;
+        border: 2px solid rgba( 255, 255, 255, 0.18 );
+        color: #fff;
+        text-align: center;
+        padding: 8px;
+    }
+    .title h2{
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        color: #fff;;
+    }
+
+    .copyright {
+        width: 90%;
+        background: rgba( 255, 255, 255, 0.3 );
+        backdrop-filter: blur( 3.5px );
+        -webkit-backdrop-filter: blur( 3.5px );
+        border-radius: 10px;
+        border: 2px solid rgba( 255, 255, 255, 0.18 );
+        color: #fff;
+        text-align: center;
+        padding: 8px;
+        font-weight: 600;
+    }
+    .copyright span{
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+
+    .controls {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .controls button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #cd83ff;
+        color: #fff;
+        font-size: .8rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .controls button:hover {
+        background-color: #b23fff;
+    }
+
+    #background-music::-webkit-media-controls {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-panel {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-play-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-start-playback-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-timeline {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-current-time-display {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-time-remaining-display {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-seek-back-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-seek-forward-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-mute-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-volume-slider {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-fullscreen-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-rewind-button {
+        display: none !important;
+    }
+    #background-music::-webkit-media-controls-return-to-realtime-button {
+        display: none !important;
+    }
+</style>
+<body>
+    <div class="title">
+        <h2>Steal My Girl</h2>
+        <p>Song by: One Direction</p>
+    </div>
+
+    <div class="lyrics-container">
+        <div class="lyric" id="intro">Sabar maniez masih intro...</div>
+        <div class="lyric" id="line1">She's been my queen</div>
+        <div class="lyric" id="line2">Since we were sixteen</div>
+        <div class="lyric" id="line3">We want the same things</div>
+        <div class="lyric" id="line4">We dream the same dreams</div>
+        <div class="lyric" id="line5">Alright, alright</div>
+        <div class="lyric" id="line6">I got it all</div>
+        <div class="lyric" id="line7">Cause she is the one</div>
+        <div class="lyric" id="line8">Her mum calls me love</div>
+        <div class="lyric" id="line9">Her dad calls me son</div>
+        <div class="lyric" id="line10">Alright, alright</div>
+        <div class="lyric" id="line11">I know, I know, I know for sure</div>
+        <div class="lyric" id="line12">Everybody wanna steal my girl</div>
+        <div class="lyric" id="line13">Everybody wanna take her heart away</div>
+        <div class="lyric" id="line14">Couple billion in the whole wide world</div>
+        <div class="lyric" id="line15">Find another one 'cause she belongs to me</div>
+        <div class="lyric" id="line16">Everybody wanna steal my girl</div>
+        <div class="lyric" id="line17">Everybody wanna take her heart away</div>
+        <div class="lyric" id="line18">Couple billion in the whole wide world</div>
+        <div class="lyric" id="line19">Find another one 'cause she belongs to me</div>
+        <div class="lyric" id="line20">Na na na na na na (oh, yeah)</div>
+        <div class="lyric" id="line21">Na na na na na na (alright)</div>
+        <div class="lyric" id="line22">Na na na na na na</div>
+    </div>
+
+    
+
+    <div class="copyright">
+        <div class="controls">
+            <button id="play-btn">Play</button>
+            <button id="restart-btn">Restart</button>
+        </div>
+        Made with <span>💜</span> by Husni Mubarok
+    </div>
+
+    <audio id="background-music" controls>
+        <source src="Steal My Girl.mp3" type="audio/mpeg">
+        Your browser does not support the audio elements.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lyrics = [
+                { time: 1, id: 'intro' },
+                { time: 24, id: 'line1' },
+                { time: 26, id: 'line2' },
+                { time: 28, id: 'line3' },
+                { time: 30, id: 'line4' },
+                { time: 31, id: 'line5' },
+                { time: 36.5, id: 'line6' },
+                { time: 38, id: 'line7' },
+                { time: 40, id: 'line8' },
+                { time: 42, id: 'line9' },
+                { time: 43, id: 'line10' },
+                { time: 50, id: 'line11' },
+                { time: 57, id: 'line12' },
+                { time: 59, id: 'line13' },
+                { time: 62, id: 'line14' },
+                { time: 65, id: 'line15' },
+                { time: 68, id: 'line16' },
+                { time: 72, id: 'line17' },
+                { time: 75, id: 'line18' },
+                { time: 78, id: 'line19' },
+                { time: 82, id: 'line20' },
+                { time: 85, id: 'line21' },
+                { time: 88, id: 'line22' },
+            ];
+
+            const music = document.getElementById('background-music');
+            const playBtn = document.getElementById('play-btn');
+            const restartBtn = document.getElementById('restart-btn');
+            let currentIndex = 0;
+
+            const updateLyrics = () => {
+                const currentTime = music.currentTime;
+                const currentLyric = lyrics[currentIndex];
+
+                if (currentIndex < lyrics.length - 1 && currentTime >= lyrics[currentIndex + 1].time) {
+                    currentIndex++;
+                }
+
+                lyrics.forEach((lyric, index) => {
+                    const element = document.getElementById(lyric.id);
+                    if (index === currentIndex) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+
+                    // Hanya tampilkan 5 baris lirik
+                    if (index >= currentIndex - 2 && index <= currentIndex + 2) {
+                        element.style.display = 'block';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+
+                // Pindahkan lirik aktif ke tengah
+                const activeElement = document.querySelector('.lyric.active');
+                const container = document.querySelector('.lyrics-container');
+                if (activeElement && container) {
+                    const offset = container.clientHeight / 2 - activeElement.offsetHeight / 2;
+                    container.scrollTop = activeElement.offsetTop - offset;
+                }
+            };
+
+            music.addEventListener('timeupdate', updateLyrics);
+
+            playBtn.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play();
+                    playBtn.textContent = 'Pause';
+                } else {
+                    music.pause();
+                    playBtn.textContent = 'Play';
+                }
+            });
+
+            restartBtn.addEventListener('click', () => {
+                music.currentTime = 0;
+                music.play();
+                currentIndex = 0;
+                updateLyrics();
+                playBtn.textContent = 'Pause';
+            });
+        });
+    </script>
+</body>
+</html>
