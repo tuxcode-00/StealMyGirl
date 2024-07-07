@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elly (She's Been My Queen)</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -94,20 +95,26 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
+        gap: .7rem;
+        margin-bottom: .7rem;
     }
 
     .controls button {
-        padding: 8px 16px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: none;
         border-radius: 5px;
         background-color: #cd83ff;
         color: #fff;
-        font-size: .8rem;
         font-weight: bold;
         cursor: pointer;
         transition: background-color 0.3s;
+    }
+    .controls button i{
+        font-size: 1.2rem;
     }
 
     .controls button:hover {
@@ -189,12 +196,10 @@
         <div class="lyric" id="line22">Na na na na na na</div>
     </div>
 
-    
-
     <div class="copyright">
         <div class="controls">
-            <button id="play-btn">Play</button>
-            <button id="restart-btn">Restart</button>
+            <button id="play-btn"><i class="material-icons">play_arrow</i></button>
+            <button id="restart-btn"><i class="material-icons">replay</i></button>
         </div>
         Made with <span>💜</span> by Husni Mubarok
     </div>
@@ -239,7 +244,6 @@
 
             const updateLyrics = () => {
                 const currentTime = music.currentTime;
-                const currentLyric = lyrics[currentIndex];
 
                 if (currentIndex < lyrics.length - 1 && currentTime >= lyrics[currentIndex + 1].time) {
                     currentIndex++;
@@ -247,21 +251,10 @@
 
                 lyrics.forEach((lyric, index) => {
                     const element = document.getElementById(lyric.id);
-                    if (index === currentIndex) {
-                        element.classList.add('active');
-                    } else {
-                        element.classList.remove('active');
-                    }
-
-                    // Hanya tampilkan 5 baris lirik
-                    if (index >= currentIndex - 2 && index <= currentIndex + 2) {
-                        element.style.display = 'block';
-                    } else {
-                        element.style.display = 'none';
-                    }
+                    element.classList.toggle('active', index === currentIndex);
+                    element.style.display = index >= currentIndex - 2 && index <= currentIndex + 2 ? 'block' : 'none';
                 });
 
-                // Pindahkan lirik aktif ke tengah
                 const activeElement = document.querySelector('.lyric.active');
                 const container = document.querySelector('.lyrics-container');
                 if (activeElement && container) {
@@ -275,10 +268,10 @@
             playBtn.addEventListener('click', () => {
                 if (music.paused) {
                     music.play();
-                    playBtn.textContent = 'Pause';
+                    playBtn.innerHTML = '<i class="material-icons">pause</i>';
                 } else {
                     music.pause();
-                    playBtn.textContent = 'Play';
+                    playBtn.innerHTML = '<i class="material-icons">play_arrow</i>';
                 }
             });
 
@@ -287,7 +280,7 @@
                 music.play();
                 currentIndex = 0;
                 updateLyrics();
-                playBtn.textContent = 'Pause';
+                playBtn.innerHTML = '<i class="material-icons">pause</i>';
             });
         });
     </script>
